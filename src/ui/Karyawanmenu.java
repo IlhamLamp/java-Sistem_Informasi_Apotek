@@ -1912,7 +1912,7 @@ public class Karyawanmenu extends javax.swing.JFrame {
         String penjobatID = penjualantable.getValueAt(row, 1).toString();
         String tanggal = penjualantable.getValueAt(row, 2).toString();
         String pelanggan = penjualantable.getValueAt(row,3).toString();
-        String obatID = penjualantable.getValueAt(row, 5).toString();
+        String obatID = penjualantable.getValueAt(row, 6).toString();
         String onama = penjualantable.getValueAt(row, 7).toString();
         String oharga = penjualantable.getValueAt(row, 10).toString();
         String ojumlah = penjualantable.getValueAt(row, 11).toString();
@@ -1924,14 +1924,13 @@ public class Karyawanmenu extends javax.swing.JFrame {
 //        String string = "January 2, 2010";
 //        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
 //        LocalDate date = LocalDate.parse(string, formatter);
-//        System.out.println(date); // 2010-01-02
-//        txtdate.setDate(date1);
+//        System.out.println(date); // 2010-01-02        
         txtpelanggan.setText(pelanggan);
         txtobatid.setText(obatID);
         txtobatnama.setText(onama);
         txtobatharga.setText(oharga);
         txtjumlah.setText(ojumlah);
-        txtjumlah.setText(obayar);
+        txttotalbayar.setText(obayar);
     }//GEN-LAST:event_penjualantableMouseClicked
 
     private void deleteBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn3ActionPerformed
