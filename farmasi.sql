@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 31, 2022 at 03:01 PM
+-- Generation Time: Jan 07, 2023 at 01:26 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -43,7 +43,7 @@ CREATE TABLE `karyawan` (
 INSERT INTO `karyawan` (`nip_id`, `password`, `nama`, `j_kelamin`, `alamat`, `status`) VALUES
 (1, 'asca1', 'Asca', 'laki-laki', 'Cikarang', 'admin'),
 (2, 'fahmi2', 'Fahmi', 'laki-laki', 'Bekasi', 'dokter'),
-(3, 'ilham3', 'Riyan', 'laki-laki', 'Bekasi', 'petugas'),
+(3, 'ilham3', 'Ilham', 'laki-laki', 'Bekasi', 'petugas'),
 (4, 'wayis4', 'Wayis', 'laki-laki', 'Banten', 'petugas'),
 (9, 'cek123', 'cektest', 'perempuan', 'rumah', 'admin'),
 (318, '12', 'test', 'laki-laki', 'pb', 'admin'),
@@ -104,7 +104,6 @@ CREATE TABLE `penjualan` (
 INSERT INTO `penjualan` (`penjualan_id`, `tanggal`, `nama_pelanggan`, `nip_id`, `obat_id`, `jml_obat`, `total_bayar`) VALUES
 (1, '2018-10-20', 'asep', 1, 'PCML01', 5, 8),
 (2, '2022-12-22', 'ujang', 3, 'ALU02', 1, 3400),
-(3, '2022-12-27', 'maman', 3, 'ACY01', 3, 2250),
 (4, '2022-12-02', 'budi', 3, 'VLS01', 4, 36000),
 (5, '2022-12-29', 'dani', 4, 'ACY01', 4, 10000);
 
@@ -172,7 +171,7 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT for table `penjualan`
 --
 ALTER TABLE `penjualan`
-  MODIFY `penjualan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `penjualan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
