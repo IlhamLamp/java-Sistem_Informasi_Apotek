@@ -1935,6 +1935,35 @@ public class Karyawanmenu extends javax.swing.JFrame {
 
     private void deleteBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn3ActionPerformed
         // TODO add your handling code here:
+        
+        try {
+            String sql ="delete from penjualan where penjualan_id='"+txtpid.getText()+"'";
+            java.sql.Connection conn=(Connection)Config.ConfigDB();
+            java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+            
+            // confirmation message
+            final JLabel label = new JLabel();
+            int result = JOptionPane.showConfirmDialog(this,"Yakin ingin hapus?", "Message",
+               JOptionPane.YES_NO_OPTION,
+               JOptionPane.QUESTION_MESSAGE);
+            switch (result) {
+                case JOptionPane.YES_OPTION:
+                    label.setText("You selected: Yes");
+                    pst.execute();
+                    JOptionPane.showMessageDialog(this, "berhasil di hapus");
+                    break;
+                case JOptionPane.NO_OPTION:
+                    label.setText("You selected: No");
+                    break;
+                default:
+                    label.setText("None selected");
+                    break;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+        load_penjualan_table();
+        penjualan_clear();
     }//GEN-LAST:event_deleteBtn3ActionPerformed
 
     private void editBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn3ActionPerformed
@@ -1942,10 +1971,20 @@ public class Karyawanmenu extends javax.swing.JFrame {
         
         // Edit Data
         try {
-            String sql ="UPDATE penjualan SET tanggal = '"+txtdate.getDate()+"', nama_pelanggan = '"+txtpelanggan.getText()+"', obat_id = '"+txtobatid.getText()+"', jml_obat= '"+txtjumlah.getText()+"' WHERE penjualan_id = '"+txtpid.getText()+"'";
+            String sql ="UPDATE penjualan SET penjualan_id = '"+txtpid.getText()+"', tanggal = '"+((JTextField)txtdate.getDateEditor().getUiComponent()).getText()+"', nama_pelanggan = '"+txtpelanggan.getText()+"', obat_id = '"+txtobatid.getText()+"', jml_obat= '"+txtjumlah.getText()+"' WHERE penjualan_id = '"+txtpid.getText()+"'";
             java.sql.Connection conn=(Connection)Config.ConfigDB();
             java.sql.PreparedStatement pst=conn.prepareStatement(sql);
             pst.execute();
+//            String sql = "update into penjualan(tanggal, nama_pelanggan, nip_id, obat_id, jml_obat, total_bayar) values(?,?,?,?,?,?)";
+//            java.sql.Connection conn=(Connection)Config.ConfigDB();
+//            java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+//            pst.setString(1, ((JTextField)txtdate.getDateEditor().getUiComponent()).getText());
+//            pst.setString(2, txtpelanggan.getText());
+//            pst.setString(3, txtnipid.getText());
+//            pst.setString(4, txtobatid.getText());
+//            pst.setString(5, txtjumlah.getText());
+//            pst.setString(6, txttotalbayar.getText());
+//            pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil di edit");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Perubahan Data Gagal"+e.getMessage());
@@ -1959,14 +1998,12 @@ public class Karyawanmenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         try {
-//            String sql = "INSERT INTO penjualan VALUES ('"+txtkodeobat.getText()+"', '"+txtnamaobat.getText()+"','"+txtjenisobat.getSelectedItem()+"','"+txtklasifikasiobat.getSelectedItem()+"','"+txtharga.getText()+"','"+txtstok.getText()+"','"+txtsupplierid.getText()+"')";
             String sql = "insert into penjualan(tanggal, nama_pelanggan, nip_id, obat_id, jml_obat, total_bayar) values(?,?,?,?,?,?)";
             java.sql.Connection conn=(Connection)Config.ConfigDB();
             java.sql.PreparedStatement pst=conn.prepareStatement(sql);
             pst.setString(1, ((JTextField)txtdate.getDateEditor().getUiComponent()).getText());
             pst.setString(2, txtpelanggan.getText());
             pst.setString(3, txtnipid.getText());
-//            pst.setString(4, (String) txtobatid.getSelectedItem());
             pst.setString(4, txtobatid.getText());
             pst.setString(5, txtjumlah.getText());
             pst.setString(6, txttotalbayar.getText());
