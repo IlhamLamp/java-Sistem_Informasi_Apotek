@@ -19,6 +19,16 @@
     ·
     <a href="https://github.com/IlhamLamp/java-Sistem_Informasi_Apotek/issues">Request Feature</a>
   </p>
+  <div align="center"> ANGGOTA KELOMPOK :
+    <br>
+    Ananda Prasca Appandi (312010157)
+    <br>
+    Fahmi Eko Putro Santoso (312010046)
+    <br>
+    Ilham Nur Utomo (312010129)
+    <br>
+    Wayis Al Qorni TS (312010169)
+  </div>
 </div>
 
 <!-- ABOUT THE PROJECT -->
